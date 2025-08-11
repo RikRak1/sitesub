@@ -1,0 +1,60 @@
+.background-shapes-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: -1;
+  transition: opacity 1s ease;
+}
+
+/* Усиленная контрастность для светлой темы */
+[data-theme="light"] .background-shapes-canvas {
+  filter: 
+    blur(60px)
+    saturate(180%)
+    contrast(150%);
+  background: 
+    linear-gradient(
+      to bottom right,
+      rgba(255, 255, 255, 0.55),
+      rgba(246, 249, 255, 0.1)
+    );
+}
+
+/* Интенсивные цвета для темной темы */
+[data-theme="dark"] .background-shapes-canvas {
+  filter: 
+    blur(45px)
+    saturate(200%)
+    contrast(140%);
+  background: 
+    radial-gradient(
+      circle at center,
+      rgba(15, 20, 45, 0.35) 0%,
+      rgba(5, 8, 22, 0.1) 80%
+    );
+}
+
+/* Анимация для усиления видимости */
+@keyframes pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 0.8; }
+  100% { opacity: 0.6; }
+}
+
+.background-shapes-canvas {
+  animation: pulse 12s infinite ease-in-out;
+}
+
+[data-theme="light"] .background-shapes-canvas {
+  animation-duration: 8s;
+  animation-name: intense-pulse;
+}
+
+@keyframes intense-pulse {
+  0% { opacity: 0.7; }
+  50% { opacity: 0.85; }
+  100% { opacity: 0.7; }
+}

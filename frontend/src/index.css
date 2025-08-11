@@ -1,0 +1,59 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+  /* Добавьте эти свойства */
+  overflow-x: hidden;
+  min-height: 100vh;
+  min-width: 100vw;
+  height: 100%;
+  touch-action: manipulation; /* Улучшает отзывчивость касаний */
+}
+
+* {
+  box-sizing: border-box; /* Упрощает расчет размеров */
+}
+
+/* Размеры для разных устройств */
+html {
+  font-size: 16px;
+}
+
+@media (max-width: 1080px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 12px;
+  }
+}
+
+/* Для landscape-ориентации на телефонах */
+@media (max-height: 500px) and (orientation: landscape) {
+  body {
+    overflow-y: auto;
+  }
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Убирает задержку 300ms на мобильных */
+* {
+  touch-action: manipulation;
+}

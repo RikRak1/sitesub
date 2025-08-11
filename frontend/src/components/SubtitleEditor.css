@@ -1,0 +1,189 @@
+.subtitle-editor {
+  width: 100%;
+  max-width: 1000px;
+  margin: 20px auto;
+  background: var(--card-bg);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.editor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 25px;
+  background: var(--primary);
+  color: white;
+}
+
+.editor-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.format-display {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 8px 15px;
+  border-radius: 30px;
+}
+
+.format-badge {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 4px 12px;
+  background: white;
+  color: var(--primary);
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.video-download-container {
+  display: flex;
+  justify-content: center;
+  margin: 15px 0;
+  padding: 0 20px;
+}
+
+.download-video-btn.custom-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 25px;
+  width: 100%;
+  max-width: 450px;
+  background: var(--accent);
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.download-video-btn.custom-btn:hover {
+  background: color-mix(in srgb, var(--accent), #111 15%);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.download-video-btn.custom-btn:disabled {
+  background: color-mix(in srgb, var(--accent), #fff 30%);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.download-video-btn.custom-btn .video-icon {
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.download-video-btn.custom-btn .video-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.editor-controls {
+  display: flex;
+  gap: 12px;
+  padding: 20px;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.editor-controls button {
+  flex: 1;
+  padding: 14px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.download-btn {
+  background: var(--success);
+  color: white;
+}
+
+.save-btn {
+  background: var(--accent);
+  color: white;
+}
+
+.edit-btn {
+  background: var(--warning);
+  color: white;
+}
+
+.reset-btn {
+  background: var(--error);
+  color: white;
+}
+
+.editor-controls button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.editor-controls button:active {
+  transform: translateY(1px);
+}
+
+.editor-textarea {
+  width: 100%;
+  min-height: 500px;
+  padding: 25px;
+  font-family: 'Fira Code', 'Courier New', monospace;
+  font-size: 15px;
+  line-height: 1.6;
+  border: none;
+  resize: vertical;
+  background: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s;
+  overflow: auto;
+  box-sizing: border-box;
+}
+
+.editor-textarea.editing {
+  background-color: var(--editing-bg);
+  border-left: 4px solid var(--accent);
+}
+
+.subtitle-editor-container {
+  width: 100%; /* Занимает всю ширину родительского контейнера */
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box; /* Важно для корректного учета padding */
+}
+
+.download-video-btn.loading {
+  opacity: 0.7;
+  pointer-events: none; /* Prevent clicks while loading */
+}
+
+.download-video-btn.loading .loading-spinner {
+  margin-right: 8px;
+  animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

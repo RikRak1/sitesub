@@ -1,0 +1,520 @@
+/* Новые CSS переменные */
+:root {
+  --upload-primary: #4361ee;
+  --upload-gradient-1: #4361ee;
+  --upload-gradient-2: #4cc9f0;
+  --upload-accent: #4cc9f0;
+  --upload-error: #f72585;
+}
+
+[data-theme="dark"] {
+  --upload-primary: #60a5fa;
+  --upload-gradient-1: #60a5fa;
+  --upload-gradient-2: #3b82f6;
+  --upload-accent: #8b5cf6;
+  --upload-error: #ef4444;
+}
+
+@keyframes slideInAnimation {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.8; }
+}
+
+@keyframes pulseSmall {
+  0% { transform: scale(0.9); opacity: 0.6; }
+  50% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(0.9); opacity: 0.6; }
+}
+
+@keyframes wave {
+  0% {
+    transform: translateX(-100%) skewX(-20deg);
+  }
+  100% {
+    transform: translateX(110%) skewX(-20deg);
+  }
+}
+
+/* Основные стили контейнера */
+.video-upload-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 600px;
+  width: 100%;
+  margin: 2rem auto;
+  padding: 25px;
+  background-color: var(--card-bg);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  position: relative;
+  animation: slideInAnimation 0.7s ease-out;
+}
+
+.upload-header-wrapper {
+  position: relative;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.animated-gradient-border {
+  padding: 2px;
+  background: linear-gradient(90deg, var(--upload-gradient-1), var(--upload-gradient-2), var(--upload-gradient-1));
+  background-size: 200% 200%;
+  border-radius: 12px;
+  animation: gradientMove 4s ease infinite;
+  width: 100%;
+}
+
+.video-upload-container h2 {
+  padding: 15px 20px;
+  background: var(--card-bg);
+  border-radius: 10px;
+  text-align: center;
+  margin: 0;
+  color: var(--text-color);
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+/* Иконка загрузки */
+.upload-icon-container {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.pulsing-dots {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dot {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 2px solid var(--upload-accent);
+  border-radius: 50%;
+  animation: pulseSmall 2s infinite;
+}
+
+.dot-1 {
+  animation-delay: 0s;
+}
+
+.dot-2 {
+  animation-delay: 0.66s;
+}
+
+.dot-3 {
+  animation-delay: 1.32s;
+}
+
+.upload-prompt svg {
+  stroke: var(--accent);
+  z-index: 2;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.upload-label {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  margin: 15px 0;
+  transition: all 0.3s ease;
+}
+
+/* Область загрузки с анимациями */
+.drop-zone {
+  width: 100%;
+  max-width: 480px;
+  height: 240px;
+  border: 2px dashed var(--upload-primary);
+  border-radius: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 25px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  background: rgba(67, 97, 238, 0.05);
+}
+
+.drop-zone:hover {
+  background: rgba(67, 97, 238, 0.1);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.drop-zone:hover .upload-label {
+  transform: scale(1.05);
+  color: var(--accent);
+}
+
+.drop-zone:hover svg {
+  transform: scale(1.1);
+}
+
+.upload-prompt {
+  padding: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.dynamic-lines p {
+  margin: 8px 0;
+  transition: all 0.3s ease;
+}
+
+.drop-zone:hover .file-formats {
+  transform: translateX(10px);
+  color: var(--upload-accent);
+}
+
+.file-formats {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 10px;
+}
+
+/* Убираем JS-зависимые анимации волн */
+.upload-drag-accent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: 
+    linear-gradient(90deg, 
+      transparent, 
+      rgba(76, 201, 240, 0.5),
+      transparent);
+  opacity: 0.7;
+}
+
+.wave-1 {
+  height: 8px;
+  /* Анимация сдвига */
+  animation: waveAnimation 7s infinite linear;
+}
+
+.wave-2 {
+  height: 6px;
+  animation: waveAnimation 9s infinite linear;
+  animation-delay: -2s;
+}
+
+.wave-3 {
+  height: 4px;
+  animation: waveAnimation 11s infinite linear;
+  animation-delay: -4s;
+}
+
+@keyframes waveAnimation {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Кнопка загрузки с градиентом */
+.glowing-upload-button {
+  position: relative;
+  padding: 16px 35px;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  overflow: hidden;
+  z-index: 1;
+  transition: all 0.4s ease;
+  background: 
+    linear-gradient(45deg, 
+      var(--upload-gradient-1), 
+      var(--upload-gradient-2));
+  background-size: 150% 150%;
+  width: 100%;
+  max-width: 300px;
+  box-shadow: 0 5px 15px rgba(67, 97, 238, 0.4);
+}
+
+.glowing-upload-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.glowing-upload-button .button-content {
+  position: relative;
+  z-index: 2;
+}
+
+.glowing-upload-button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    rgba(255, 255, 255, 0.2),
+    rgba(255, 255, 255, 0)
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.glowing-upload-button:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(76, 201, 240, 0.6);
+  animation: pulse 1.5s infinite ease;
+}
+
+.glowing-upload-button:disabled {
+  background: var(--text-secondary);
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Информация о файле с анимацией */
+.file-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  background: var(--bg-secondary);
+  padding: 15px;
+  border-radius: 12px;
+  width: 100%;
+  border-left: 5px solid var(--upload-accent);
+  animation: expandDown 0.4s ease-out;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+@keyframes expandDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+    height: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    height: auto;
+  }
+}
+
+.file-info:hover {
+  transform: translateX(5px);
+  border-left: 5px solid var(--primary);
+}
+
+.file-name {
+  font-weight: 600;
+  color: var(--text-color);
+  margin: 0;
+}
+
+.file-size {
+  font-size: 14px;
+  color: var(--text-secondary);
+  font-weight: normal;
+  margin-left: 8px;
+}
+
+.remove-button {
+  margin-left: auto; /* Автоматический отступ слева - выравнивает кнопку вправо */
+  padding: 6px 14px;
+  background: none;
+  color: var(--upload-error);
+  border: 1px solid var(--upload-error);
+  border-radius: 30px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: 
+    all 0.3s ease,
+    transform 0.1s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  max-height: 32px;
+  position: relative;
+  overflow: hidden;
+}
+
+.remove-button:hover {
+  background: rgba(247, 37, 133, 0.1);
+}
+
+.remove-button:active {
+  transform: scale(0.95);
+  box-shadow: inset 0 0 8px rgba(247, 37, 133, 0.2);
+}
+
+.remove-button::before {
+  content: '🗑️'; /* Иконка корзины */
+  display: inline-block;
+}
+
+/* Анимация при наведении (опционально) */
+.remove-button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(247, 37, 133, 0.05);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+  z-index: -1;
+}
+
+.remove-button:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Для темной темы */
+[data-theme="dark"] .remove-button {
+  color: #ff7eb3;
+  border-color: #ff7eb3;
+}
+
+[data-theme="dark"] .remove-button:hover {
+  background: rgba(255, 126, 179, 0.15);
+}
+
+/* Модалка ошибки с новой анимацией */
+.error-modal {
+  /* Без изменений за исключением анимации */
+  animation: fadeInError 0.3s ease;
+}
+
+@keyframes fadeInError {
+  0% { 
+    opacity: 0; 
+    transform: scale(0.7) translateY(10px);
+  }
+  100% { 
+    opacity: 1; 
+    transform: scale(1) translateY(0);
+  }
+}
+
+.error-content {
+  /* Без изменений за исключением градиента */
+  border: 2px solid transparent;
+  background: 
+    linear-gradient(var(--card-bg), var(--card-bg)) padding-box,
+    linear-gradient(45deg, var(--upload-primary), var(--upload-error)) border-box;
+}
+
+.ok-button {
+  /* Без изменений */
+  background: linear-gradient(45deg, var(--upload-primary), var(--upload-accent));
+}
+
+/* Добавим мелкие детали */
+.slide-in {
+  overflow: hidden;
+}
+
+.slide-in::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(
+    to right,
+    var(--upload-primary) 0%,
+    var(--upload-accent) 50%,
+    var(--upload-primary) 100%
+  );
+  background-size: 200% 100%;
+  animation: slideLine 5s ease infinite;
+  z-index: 2;
+}
+
+@keyframes slideLine {
+  0% {background-position: 100% 0}
+  100% {background-position: -100% 0}
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  /* Без изменений */
+}
+
+@media (max-width: 480px) {
+  .upload-label {
+    font-size: 1rem;
+  }
+  .file-formats {
+    font-size: 0.85rem;
+  }
+  .glowing-upload-button {
+    padding: 14px 20px;
+    font-size: 15px;
+  }
+}
+

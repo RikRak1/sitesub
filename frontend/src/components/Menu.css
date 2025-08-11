@@ -1,0 +1,63 @@
+.menu-container {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 10;
+}
+
+.menu-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 2em;
+  padding: 10px;
+  color: #333; /* Цвет иконки для светлой темы */
+  transition: color 0.3s; /* Плавное изменение цвета */
+}
+
+.menu-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-list li {
+  padding: 10px;
+}
+
+.menu-list a {
+  text-decoration: none;
+  color: #333;
+}
+
+/* Стили для темной темы */
+.dark-theme .menu-list {
+  background-color: #444;
+  border-color: #555;
+}
+
+.dark-theme .menu-list a {
+  color: #fff;
+}
+
+/* Стиль для темной темы (иконка меню) */
+.dark-theme .menu-button {
+  color: #fff;
+}
+
+.menu-list li:hover {
+  background-color: #4CAF50; /* Зелёный цвет фона при наведении */
+  color: #000; /* Текст остаётся чёрным */
+  transition: background-color 0.3s; /* Плавное изменение */
+}
+
+.dark-theme .menu-list li:hover {
+  background-color: #27ae60; /* Правильный тёмно-зелёный для темной темы */
+  color: #fff;
+}
