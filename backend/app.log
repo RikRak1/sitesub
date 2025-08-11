@@ -1,0 +1,47 @@
+2025-08-11 16:50:59,149 - __main__ - INFO - Предварительная загрузка моделей Whisper...
+2025-08-11 16:50:59,989 - __main__ - INFO - Загружена модель Whisper: base
+2025-08-11 16:51:05,311 - __main__ - INFO - Загружена модель Whisper: medium
+2025-08-11 16:51:05,312 - __main__ - INFO - Запуск Flask сервера...
+2025-08-11 16:51:06,598 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.49:5000
+2025-08-11 16:51:06,598 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-08-11 16:51:06,601 - werkzeug - INFO -  * Restarting with stat
+2025-08-11 16:51:09,257 - __main__ - INFO - Предварительная загрузка моделей Whisper...
+2025-08-11 16:51:09,972 - __main__ - INFO - Загружена модель Whisper: base
+2025-08-11 16:51:15,051 - __main__ - INFO - Загружена модель Whisper: medium
+2025-08-11 16:51:15,053 - __main__ - INFO - Запуск Flask сервера...
+2025-08-11 16:51:15,060 - werkzeug - WARNING -  * Debugger is active!
+2025-08-11 16:51:15,064 - werkzeug - INFO -  * Debugger PIN: 142-971-713
+2025-08-11 16:52:36,861 - __main__ - INFO - [375ae5c2403b45a3838356cfe74fba53] Начало обработки запроса
+2025-08-11 16:52:36,862 - __main__ - INFO - [375ae5c2403b45a3838356cfe74fba53] Заголовки запроса: {'Host': 'localhost:5000', 'Connection': 'keep-alive', 'Content-Length': '21619145', 'Sec-Ch-Ua-Platform': '"Windows"', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36', 'Sec-Ch-Ua': '"Not)A;Brand";v="8", "Chromium";v="138", "Google Chrome";v="138"', 'Content-Type': 'multipart/form-data; boundary=----WebKitFormBoundary2hxrcKcqR46Tpjqb', 'Sec-Ch-Ua-Mobile': '?0', 'Accept': '*/*', 'Origin': 'http://localhost:3000', 'Sec-Fetch-Site': 'same-site', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://localhost:3000/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7'}
+2025-08-11 16:52:37,032 - __main__ - INFO - [375ae5c2403b45a3838356cfe74fba53] Получен видеофайл: i8.mp4
+2025-08-11 16:52:37,032 - __main__ - INFO - [375ae5c2403b45a3838356cfe74fba53] Параметры запроса:
+2025-08-11 16:52:37,032 - __main__ - INFO -   model_size: base
+2025-08-11 16:52:37,032 - __main__ - INFO -   language: ru
+2025-08-11 16:52:37,032 - __main__ - INFO -   translate: False
+2025-08-11 16:52:37,033 - __main__ - INFO -   subtitle_format: srt
+2025-08-11 16:52:37,033 - __main__ - INFO -   num_speakers: 2
+2025-08-11 16:52:37,033 - __main__ - INFO - [375ae5c2403b45a3838356cfe74fba53] Расширение файла: mp4
+2025-08-11 16:52:37,033 - __main__ - INFO - [375ae5c2403b45a3838356cfe74fba53] Определённый тип файла: mp4
+2025-08-11 16:52:37,034 - __main__ - INFO - [375ae5c2403b45a3838356cfe74fba53] Создан временный каталог: C:\Users\valev\AppData\Local\Temp\tmpb07mc4gk
+2025-08-11 16:52:37,034 - __main__ - INFO - [375ae5c2403b45a3838356cfe74fba53] Путь для аудиофайла: C:\Users\valev\AppData\Local\Temp\tmpb07mc4gk\audio.wav
+2025-08-11 16:52:37,054 - __main__ - INFO - Временный видеофайл сохранён: C:\Users\valev\AppData\Local\Temp\temp_8a26759ee226448abe0894adf8171f06.mp4
+2025-08-11 16:52:37,054 - __main__ - INFO - Выполняем команду извлечения: ffmpeg -i C:\Users\valev\AppData\Local\Temp\temp_8a26759ee226448abe0894adf8171f06.mp4 -vn -acodec pcm_s16le -ar 16000 -ac 1 -y C:\Users\valev\AppData\Local\Temp\tmpb07mc4gk\audio.wav
+2025-08-11 16:52:38,219 - __main__ - INFO - Аудиофайл успешно извлечён: C:\Users\valev\AppData\Local\Temp\tmpb07mc4gk\audio.wav - размер: 7596904 байт
+2025-08-11 16:52:38,221 - __main__ - INFO - Удалён временный файл: C:\Users\valev\AppData\Local\Temp\temp_8a26759ee226448abe0894adf8171f06.mp4
+2025-08-11 16:52:38,222 - py.warnings - WARNING - C:\gt1\sitesub\backend\.venv\Lib\site-packages\whisper\transcribe.py:115: UserWarning: FP16 is not supported on CPU; using FP32 instead
+  warnings.warn("FP16 is not supported on CPU; using FP32 instead")
+
+2025-08-11 16:53:29,567 - __main__ - INFO - [375ae5c2403b45a3838356cfe74fba53] Получено 103 транскрибированных сегментов
+2025-08-11 16:53:49,825 - __main__ - INFO - Диакризация успешно завершена для 133 сегментов
+2025-08-11 16:53:49,826 - __main__ - INFO - [375ae5c2403b45a3838356cfe74fba53] Диакризация завершена: 133 результатов
+2025-08-11 16:53:49,829 - __main__ - INFO - [375ae5c2403b45a3838356cfe74fba53] Успешно сгенерированы субтитры (10696 символов)
+2025-08-11 16:53:49,834 - werkzeug - INFO - 127.0.0.1 - - [11/Aug/2025 16:53:49] "POST /generate-subtitles HTTP/1.1" 200 -
+2025-08-11 16:55:34,413 - __main__ - INFO - Создан временный каталог: C:\Users\valev\AppData\Local\Temp\tmpjf_aim7n
+2025-08-11 16:55:34,454 - __main__ - INFO - Видео сохранено: C:\Users\valev\AppData\Local\Temp\tmpjf_aim7n\i8_input.mp4
+2025-08-11 16:55:34,455 - __main__ - INFO - Субтитры сохранены: C:\Users\valev\AppData\Local\Temp\tmpjf_aim7n\subs.srt
+2025-08-11 16:55:34,455 - __main__ - INFO - Выполняем команду: ffmpeg -i C:\Users\valev\AppData\Local\Temp\tmpjf_aim7n\i8_input.mp4 -vf subtitles=subs.srt -preset veryfast -crf 23 -c:a copy -y C:\Users\valev\AppData\Local\Temp\tmpjf_aim7n\i8_with_hardcoded_subs.mp4 -metadata language=rus
+2025-08-11 16:55:47,338 - werkzeug - INFO - 127.0.0.1 - - [11/Aug/2025 16:55:47] "POST /generate-video-with-subs HTTP/1.1" 200 -
+2025-08-11 16:55:47,341 - __main__ - INFO - Объект удалён: C:\Users\valev\AppData\Local\Temp\tmpjf_aim7n

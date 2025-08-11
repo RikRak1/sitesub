@@ -1,0 +1,24 @@
+--extra-index-url https://download.pytorch.org/whl/cpu
+
+Flask==3.0.3
+Flask-Cors==4.0.1
+openai-whisper==20231117
+
+# численный стек
+numpy==1.26.4
+scipy==1.11.4
+numba==0.58.1
+llvmlite==0.41.1
+
+# аудио
+soundfile==0.12.1
+audioread==3.0.1
+librosa==0.10.2.post1
+webrtcvad-wheels==2.0.10.post2
+
+moviepy==1.0.3
+resemblyzer==0.1.4
+scikit-learn==1.5.1
+
+# PyTorch CPU
+torch==2.3.1
